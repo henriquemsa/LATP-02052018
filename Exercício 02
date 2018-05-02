@@ -1,0 +1,61 @@
+/*
+ * Elabore um programa contendo um método que receba as três notas de um aluno como parâmetros e uma letra. 
+ * Se a letra for A, o método deverá calcular a média aritmética das notas do aluno; se for P, deverá calcular 
+ * a média ponderada, com pesos 5, 3 e 2. A média calculada deverá ser devolvida ao programa principal para, então, ser mostrada.
+ */
+
+using System;
+
+namespace Exercicio2
+{
+    class Program
+    {
+        static double Media (double a, double b, double c, char d)
+        {
+            double resultado = 0;
+
+            if (d == 'A' || d == 'a')
+            {
+                resultado = (a + b + c) / 3;
+            }
+            if (d == 'P' || d == 'p')
+            {
+                resultado = ((a * 5) + (b * 3) + (c * 2)) / (5 + 3 + 2);
+            }
+
+            return resultado;
+        }
+        static void Main(string[] args)
+        {
+            double nota1, nota2, nota3, resultado;
+            char opcao;
+
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine("Aluno: Alef Henrique Martins Santos");
+            Console.WriteLine();
+            Console.WriteLine("Entre com o valor da 1ª nota: ");
+            nota1 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Entre com o valor da 2ª nota: ");
+            nota2 = double.Parse(Console.ReadLine());
+            Console.WriteLine("Entre com o valor da 3ª nota: ");
+            nota3 = double.Parse(Console.ReadLine());
+
+            Console.Clear();
+            Console.WriteLine("Escolha uma opção: ");
+            Console.WriteLine("A - Média aritimética");
+            Console.WriteLine("P - Média ponderada");
+            opcao = char.Parse(Console.ReadLine());
+
+            resultado = Media(nota1, nota2, nota3, opcao);
+
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine("A média é: " + resultado);
+            
+            Console.WriteLine();
+            Console.WriteLine("Pressione qualquer tecla para sair...");
+            Console.ReadKey();
+        }
+    }
+}
