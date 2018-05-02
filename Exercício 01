@@ -1,0 +1,39 @@
+/*
+ * Faça um programa que contenha um método que receba um tempo em segundos e calcule a transformação em horas e em minutos. 
+ * Imprima ambos os resultados.
+ */
+
+using System;
+
+namespace Exercício1
+{
+    class Program
+    {
+        public static void Tempo(double a)
+        {
+            double minutos, horas, segundos;
+            horas = (int)(a / 3600);
+            minutos = (int)((a % 3600) / 60);
+            segundos = (int)(((a % 3600) % 60) % 60);
+
+            Console.WriteLine("{0} segundos equivale à {1}:{2}:{3}", a, horas, minutos, segundos);
+        }
+
+        static void Main(string[] args)
+        {
+            double segundos;
+            Console.Clear();
+            Console.WriteLine();
+            Console.WriteLine("Aluno: Alef Henrique Martins Santos");
+            Console.WriteLine();
+            Console.Write("Entre com o valor em segundos: ");
+            segundos = int.Parse(Console.ReadLine());
+
+            Tempo(segundos);
+
+            Console.WriteLine();
+            Console.WriteLine("Pressione qualquer tecla para sair...");
+            Console.ReadKey();
+        }
+    }
+}
